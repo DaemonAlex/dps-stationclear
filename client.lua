@@ -56,6 +56,11 @@ end, false)
 -- Mirror Park Raceway: custom light poles (zc_prop_ind_light_02b_def) planted on the track.
 -- The model is placed by a packed map archive, so a hide is the server-side fix.
 local AREAS = {
+    -- DPS 2026-11-02: the four "LS Live" hides below are RETIRED. Built for the Rags world
+    -- (Rags emptied block dt1_21; these hid the vanilla leftovers). Rags benched 10-28 ->
+    -- the hides then erased the RETURNED vanilla ground = the walkable invisible slab on
+    -- Alta St. Damon called it: "wondering if we manually removed an exclusion somewhere."
+
     { label = "Mirror Park Raceway light poles", coords = vec3(1123.45, -1234.56, 42.10), radius = 250.0,
       models = { 709190416 --[[ zc_prop_ind_light_02b_def ]] } },
     -- Roxwood Junction corridor (Damon, 2026-09-21: "clear all of those within
@@ -74,24 +79,24 @@ local AREAS = {
       models = { `onx_sequoia_01_a`, `prop_tree_cedar_02` } },
     -- Damon, 2026-09-26: vanilla construction lift still standing inside the Rags-n-Riches
     -- LS Live block after the 1.6.0 install ("prop_conslift_lift @ -182.22 -1016.44 31.37").
-    { label = "LS Live leftover construction lift", coords = vec3(-182.22, -1016.44, 31.37), radius = 15.0,
-      models = { `prop_conslift_lift` } },
+        --RETIRED-- { label = "LS Live leftover construction lift", coords = vec3(-182.22, -1016.44, 31.37), radius = 15.0,
+    --RETIRED-- models = { `prop_conslift_lift` } },
     -- Damon, 2026-09-26: ghost containers of the old construction site under the Rags-n-Riches
     -- tower (six /spot marks, x -90..-140, y -935..-1060). Rags 1.6.0 empties the close-up
     -- entities of block dt1_21 but its LOD map still places the block distant model
     -- dt1_lod_21 (hash 3320779646), which the game then draws up close. Hide that model.
-    { label = "LS Live old construction site distant model", coords = vec3(-156.5, -1042.7, 42.2), radius = 200.0,
-      models = { `dt1_lod_21` } },
+        --RETIRED-- { label = "LS Live old construction site distant model", coords = vec3(-156.5, -1042.7, 42.2), radius = 200.0,
+    --RETIRED-- models = { `dt1_lod_21` } },
     -- Damon, 2026-09-26: the actual ghost containers. The base-game file dt1_21_critical_0.ymap
     -- (x64i.rpf, not the hei_ version Rags empties) places model 3235189104 sixteen times around
     -- the old construction site perimeter, x -60..-230, y -926..-1112. Hide it by hash.
-    { label = "LS Live old construction site containers", coords = vec3(-150.0, -1015.0, 27.0), radius = 220.0,
-      models = { -1059778192 --[[ 3235189104, base dt1_21_critical_0 ]] } },
+        --RETIRED-- { label = "LS Live old construction site containers", coords = vec3(-150.0, -1015.0, 27.0), radius = 220.0,
+    --RETIRED-- models = { -1059778192 --[[ 3235189104, base dt1_21_critical_0 ]] } },
     -- Damon, 2026-09-26: still-visible ghosts at the old site after the base files were emptied.
     -- Every ground-level model the vanilla dt1_21 / dt1_21_long_0 files place inside the footprint
     -- (x -145..-55, y -1100..-925), hidden by hash so no copy from any source can draw them.
-    { label = "LS Live old construction site, all vanilla ground models", coords = vec3(-120.0, -1010.0, 30.0), radius = 250.0,
-      models = { -1480350485, -350958032, -674724219, -1761765122, 2093204297, 932133798, -1729755864, 181142258, 1986177295, 1019136610, -1320522612, 189874284, 1147611394, -584906966, -225322091, 1400979791, -293889843, 1704776920, -22983974, -369949851, -1003140932, -1510214055, -679820683, 701324079, -1159699521, -2038628351 } },
+        --RETIRED-- { label = "LS Live old construction site, all vanilla ground models", coords = vec3(-120.0, -1010.0, 30.0), radius = 250.0,
+    --RETIRED-- models = { -1480350485, -350958032, -674724219, -1761765122, 2093204297, 932133798, -1729755864, 181142258, 1986177295, 1019136610, -1320522612, 189874284, 1147611394, -584906966, -225322091, 1400979791, -293889843, 1704776920, -22983974, -369949851, -1003140932, -1510214055, -679820683, 701324079, -1159699521, -2038628351 } },
 }
 local function hideArea(a)
     for i = 1, #a.models do
